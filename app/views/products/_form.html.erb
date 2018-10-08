@@ -1,0 +1,26 @@
+<div class="container">
+  <h1><%= form_title %></h1>
+
+  <%=form_for @product do |p|%>
+  <form>
+    <div class="form-group">
+      <%= p.text_field :name, class: "form-control input-lg" %>
+    </div>
+    <div class="form_group">
+      <%= p.number_field :price, class: "form-control input-lg"   %>
+    </div>
+    <% Category.all.each do |category| %>
+      <% #byebug %>
+      <p><%= category.name %> <%= check_box_tag "product[category_ids][]", category.id, @product.categories.pluck(:id).include?(category.id)  %></p><br>
+    <% end %>
+
+    <div>
+      <br>
+      <%= p.submit form_title, class: "btn btn-primary btn-lg btn-block" %>
+    </div>
+
+
+  </form>
+     <% end %>
+
+</div>
