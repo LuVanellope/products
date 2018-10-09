@@ -2,7 +2,7 @@
   <h1><%= form_title %></h1>
 
   <%=form_for @product do |p|%>
-  <form>
+
     <div class="form-group">
       <%= p.text_field :name, class: "form-control input-lg" %>
     </div>
@@ -12,15 +12,11 @@
     <div class="form_group">
       <%=p.collection_check_boxes :category_ids, Category.all, :id, :name %>
     </div>
-
-
     <div>
       <br>
       <%= p.submit form_title, class: "btn btn-primary btn-lg btn-block" %>
     </div>
 
-
-  </form>
-     <% end %>
+  <% end %>
 
 </div>
