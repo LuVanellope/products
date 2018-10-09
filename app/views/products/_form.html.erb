@@ -11,7 +11,7 @@
     </div>
     <% Category.all.each do |category| %>
       <% #byebug %>
-      <p><%= category.name %> <%= check_box_tag "product[category_ids][]", category.id, @product.categories.pluck(:id).include?(category.id)  %></p><br>
+      <%= category.name %> <%= check_box_tag "product[category_ids][]", category.id, @product.categories.pluck(:id).include?(category.id)  %><br>
     <% end %>
 
     <div>
